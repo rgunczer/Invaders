@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Configuration;
 
 
 namespace InvadersDatFileConverter
@@ -14,17 +15,24 @@ namespace InvadersDatFileConverter
     public partial class frmMain : Form
     {   
         private const int kDrawingXOffset = 190;
-        private const string kSourceDatFilesPath = @"c:\ext\_projects\_legacy\DOS\i\";
-        private const string kDestJsonFilesPath = @"c:\ext\_projects\webstorm\first\";
 
-        private Loader _loader = new Loader(kSourceDatFilesPath);
-        private Painter _painter = new Painter(kDrawingXOffset);
-        private Converter _converter = new Converter(kDestJsonFilesPath);
+        private string _sourceDatFilesPath;
+        private string _destJsonFilesPath;
+        
+        private Loader _loader;
+        private Painter _painter;
+        private Converter _converter;
     
         // ctor
         public frmMain()
         {
             InitializeComponent();
+            _sourceDatFilesPath = ConfigurationManager.AppSettings["pathToDatFiles"];
+            _destJsonFilesPath = ConfigurationManager.AppSettings["pathToJsonFiles"];
+
+            _loader = new Loader(_sourceDatFilesPath);
+            _painter = new Painter(kDrawingXOffset);
+            _converter = new Converter(_destJsonFilesPath);            
         }
 
         // form events
