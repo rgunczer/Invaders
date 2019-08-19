@@ -1,5 +1,6 @@
 /**
  * Created by Robert Gunczer on 1/23/2016.
+ * mod: 2019-08-19
  */
 
 window.addEventListener("load", eventWindowLoad, false);
@@ -30,7 +31,12 @@ var textInstructionToBegin = 'Press Enter or Press Fire to begin...';
 var bulletWidth = 2;
 var bulletHeight = 8;
 var asset = {
-    files: [ 'title.json', 'player.json', 'enemy.json', 'live.json' ],
+    files: [
+        'title.json',
+        'player.json',
+        'enemy.json',
+        'live.json'
+    ],
     titleData : '',
     playerData : '',
     enemyData : '',
@@ -196,7 +202,7 @@ function eventWindowLoad() {
 }
 
 function gameLoop() {
-    window.setTimeout(gameLoop, 20);
+    window.setTimeout(gameLoop, 12);
     clearScreenWithColor(backgroundColor);
     handleInput();
     switch(gameState) {
@@ -359,11 +365,11 @@ function drawEnemyAnim() {
     for (i = 0; i < len; ++i) {
         enemy = enemies[i];
         if (enemy.active) {
-            // jobb
+            // right
             context.moveTo(enemy.x + 1 + 27 + dx, enemy.y + 2 + 17 + dy); context.lineTo(enemy.x + 3 + 27 + dx, enemy.y + 2 + 17 + dy);
             context.moveTo(enemy.x + 4 + 27 + dx, enemy.y + 2 + 17 + dy); context.lineTo(enemy.x + 4 + 27 + dx, enemy.y + 5 + 17 + dy);
 
-            // bal
+            // left
             context.moveTo(enemy.x - 9 + 27 + dx, enemy.y + 2 + 17 + dy); context.lineTo(enemy.x - 12 + 27 + dx, enemy.y + 2 + 17 + dy);
             context.moveTo(enemy.x - 12 + 27 + dx, enemy.y + 2 + 17 + dy); context.lineTo(enemy.x - 12 + 27 + dx, enemy.y + 5 + 17 + dy);
         }
@@ -376,11 +382,11 @@ function drawEnemyAnim() {
     for (i = 0; i < len; ++i) {
         enemy = enemies[i];
         if (enemy.active) {
-            // jobb
+            // right
             context.moveTo(enemy.x + 2 + 27 + dx, enemy.y + 1 + 17 + dy); context.lineTo(enemy.x + 4 + 27 + dx, enemy.y + 1 + 17 + dy);
             context.moveTo(enemy.x + 5 + 27 + dx, enemy.y + 1 + 17 + dy); context.lineTo(enemy.x + 5 + 27 + dx, enemy.y + 4 + 17 + dy);
 
-            // bal
+            // left
             context.moveTo(enemy.x - 10 + 27 + dx, enemy.y + 1 + 17 + dy); context.lineTo(enemy.x - 13 + 27 + dx, enemy.y + 1 + 17 + dy);
             context.moveTo(enemy.x - 13 + 27 + dx, enemy.y + 2 + 17 + dy); context.lineTo(enemy.x - 13 + 27 + dx, enemy.y + 4 + 17 + dy);
         }
@@ -948,39 +954,3 @@ function enemyFire() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

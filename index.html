@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>Title</title>
-    <script src="script.js"></script>
+    <title>Invaders</title>
+    <script src="game.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -14,11 +14,11 @@
     <table class="center" style="width: 640px">
         <tr>
             <td style="width: 20%">
-                <button type="button" onclick="inputPlayerFire()">Fire</button>
+                <button type="button" class="btn" onclick="inputPlayerFire()">Fire</button>
             </td>
             <td style="width: 80%; text-align: right">
-                <button type="button" onclick="inputMoveLeft()">&lt;</button>
-                <button type="button" onclick="inputMoveRight()">&gt;</button>
+                <button type="button" class="btn" onclick="inputMoveLeft()">&lt;</button>
+                <button type="button" class="btn" onclick="inputMoveRight()">&gt;</button>
             </td>
         </tr>
     </table>
